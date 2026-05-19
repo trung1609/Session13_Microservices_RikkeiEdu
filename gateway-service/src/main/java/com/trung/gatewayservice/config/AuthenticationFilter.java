@@ -66,7 +66,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
                     return onError(exchange, "Malformed or invalid token", HttpStatus.UNAUTHORIZED);
                 }
             }
-            return chain.filter(exchange);
+            return chain.filter(exchange.mutate().request(request).build());
         };
     }
 
