@@ -4,10 +4,7 @@ import com.trung.identityservice.dto.FormRegister;
 import com.trung.identityservice.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -20,4 +17,11 @@ public class AuthController {
         String response = authService.register(request);
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping("/test-token")
+    public ResponseEntity<String> testToken(@RequestParam String username) {
+        String response = authService.testToken(username);
+        return ResponseEntity.ok(response);
+    };
 }
+
