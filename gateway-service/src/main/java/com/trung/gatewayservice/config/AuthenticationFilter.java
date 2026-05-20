@@ -17,12 +17,10 @@ import java.nio.charset.StandardCharsets;
 
 @Component
 public class AuthenticationFilter extends AbstractGatewayFilterFactory<AuthenticationFilter.Config> {
-    private final RouteValidator routeValidator;
     private final JwtUtil jwtUtil;
 
-    public AuthenticationFilter(RouteValidator routeValidator, JwtUtil jwtUtil) {
+    public AuthenticationFilter(JwtUtil jwtUtil) {
         super(Config.class);
-        this.routeValidator = routeValidator;
         this.jwtUtil = jwtUtil;
     }
 

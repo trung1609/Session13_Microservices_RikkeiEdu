@@ -23,7 +23,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
         String rolesHeader = request.getHeader("X-User-Role");
 
         if ("POST".equalsIgnoreCase(request.getMethod()) && request.getRequestURI().contains("/api/products")) {
-            if (rolesHeader == null || !rolesHeader.contains("ROLE_ADMIN")) {
+            if (rolesHeader == null || !rolesHeader.contains("ADMIN")) {
                 response.setStatus(HttpServletResponse.SC_FORBIDDEN);
                 response.setContentType("application/json");
                 String errorResponse = "{\"status\": \"error\", \"message\": \"Access denied. Admin role required.\"}";
